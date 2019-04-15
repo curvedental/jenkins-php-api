@@ -174,7 +174,7 @@ class Jenkins_Build
   public function getResult()
   {
     if ($this->isBuilding()) {
-      return Build::RUNNING;
+      return Jenkins_Build::RUNNING;
     }
     $result = null;
     switch($this->build->result)
