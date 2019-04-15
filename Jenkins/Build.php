@@ -149,12 +149,24 @@ class Jenkins_Build
     
     return $remaining;
   }
+
+  /**
+   * @return boolean
+   */
+  public function isBuilding()
+  {
+    return $this->build->building;
+  }
+
   
   /**
    * @return null|string
    */
   public function getResult()
   {
+    if ($this->isBuilding()) {
+      return Build::RUNNING;
+    }
     $result = null;
     switch($this->build->result)
     {
